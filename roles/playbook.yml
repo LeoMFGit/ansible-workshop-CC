@@ -1,0 +1,5 @@
+---
+- name: Network Automation
+  hosts: apic
+  roles: 
+    - tenant

@@ -1,0 +1,26 @@
+---
+#- name: Add a new tenant
+#  cisco.aci.aci_tenant:
+#    host: "{{ansible_host}}"
+#    username: "{{username}}"
+#    password: "{{password}}"
+#    tenant: "{{tenant_name}}"
+#    description: Workshop Tenant
+#    state: present
+
+- name: Query all contracts
+  cisco.aci.aci_contract:
+    host: "{{ansible_host}}"
+    username: "{{username}}"
+    password: "{{password}}"
+    tenant: SnV
+    state: query
+  register: query_result
+
+#- name: output of query_result
+#  debug:
+#    var: query_result
+
+- name: Filter Output
+  ansible.builtin.debug:
+    msg: "{{ query_result | community.general.json_query('current[*].fvTenant.children[*].vzBrCP.attributes.name') }}"
