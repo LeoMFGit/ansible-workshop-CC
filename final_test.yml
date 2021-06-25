@@ -1,25 +1,30 @@
 ---
-hosts: node1
-tasks:
-  - name: Creates directory
-    file:
-      path: /exam
-      state: directory
+- name: Examen
+  hosts: node1
+  tasks:
+    - name: Creates directory
+      file:
+        path: /src/exam
+        state: directory
+      become: yes
     
-  - name: Creating a file with content food
+    - name: Creating a file with content
       copy:
-        dest: "/exam"
+        dest: "/src/exam/essen.txt"
         content: |
-          "Nudeln mit Lachssoße"
-        
-  - name: Creating a file with content date
+          "Lachsnudeln"
+      become: yes
+
+    - name: Creating a file with content
       copy:
-        dest: "/exam"
+        dest: "/src/exam/datum.txt"
         content: |
           "25.06.2021"
-        
-  - name: Creating a file with content ip address
+      become: yes
+
+    - name: Creating a file with content
       copy:
-        dest: "/exam"
+        dest: "/src/exam/ip.txt"
         content: |
           "35.157.153.55"
+      become: yes
