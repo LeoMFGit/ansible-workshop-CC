@@ -1,2 +1,16 @@
 [apic]
 apic1
+
+[web]
+node1 ansible_host=35.157.153.55
+node2 ansible_host=3.64.255.212
+node3 ansible_host=18.193.68.127
+
+[web:vars]
+ansible_user=ansible
+
+[ftpserver]
+node2 ansible_host=3.64.255.212
+
+[control]
+ansible-1 ansible_host=3.121.74.169 ansible_connection=local
