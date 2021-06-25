@@ -11,20 +11,17 @@
     - name: Creating a file with content
       copy:
         dest: "/src/exam/essen.txt"
-        content: |
-          "Lachsnudeln"
+        content: "{{food}}"
       become: yes
 
     - name: Creating a file with content
       copy:
         dest: "/src/exam/datum.txt"
-        content: |
-          "25.06.2021"
+        content: "{{date}}"
       become: yes
 
     - name: Creating a file with content
       copy:
         dest: "/src/exam/ip.txt"
-        content: |
-          "35.157.153.55"
+        content: "{{ip}}"
       become: yes
